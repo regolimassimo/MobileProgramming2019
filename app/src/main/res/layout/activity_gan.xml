@@ -8,47 +8,55 @@
 
 
     <com.massimoregoli.mp2019.myviews.MyEditText
-        android:id="@+id/myEditText"
+        android:id="@+id/etAttempt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/myButton2"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnOK"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <com.massimoregoli.mp2019.myviews.MyButton
-        android:id="@+id/myButton2"
+        android:id="@+id/btnOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="OK"
+        android:text="@android:string/ok"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        style="?android:attr/borderlessButtonStyle"/>
 
     <com.massimoregoli.mp2019.myviews.MyTextView
-        android:id="@+id/myTextView"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/guess_a_number"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.massimoregoli.mp2019.myviews.MyTextView
-        android:id="@+id/myTextView2"
+        android:id="@+id/tvResult"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etAttempt" />
 </android.support.constraint.ConstraintLayout>

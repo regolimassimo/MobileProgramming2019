@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Mobile Programming 2019</string>
     <string name="guess_a_number">Guess A Number</string>
+    <string name="files">Files</string>
+    <string name="error">%s: Error!</string>
+    <string name="toobig">%d: Too Big</string>
+    <string name="toosmall">%d: Too Small</string>
+    <string name="bravo">%d: Bravo</string>
+    <string name="permok">Permission Accepted!</string>
+    <string name="permnotok">Permission Denied!</string>
+    <string name="say_a_number">Say a Number</string>
 </resources>
