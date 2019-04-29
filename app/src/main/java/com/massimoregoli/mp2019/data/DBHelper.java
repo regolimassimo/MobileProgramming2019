@@ -3,7 +3,6 @@ package com.massimoregoli.mp2019.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
 import android.support.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {

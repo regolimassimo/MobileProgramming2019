@@ -13,6 +13,8 @@ public class MyButton extends android.support.v7.widget.AppCompatButton {
         super(context, attrs);
     }
 
+
+
     @Override
     public boolean isInEditMode() {
         return super.isInEditMode();
