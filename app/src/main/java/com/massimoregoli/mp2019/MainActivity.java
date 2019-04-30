@@ -1,6 +1,7 @@
 package com.massimoregoli.mp2019;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.massimoregoli.mp2019.data.DBHelper;
 import com.massimoregoli.mp2019.myactivities.FilesActivity;
 import com.massimoregoli.mp2019.myactivities.GANActivity;
+import com.massimoregoli.mp2019.myactivities.ViewActivity;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,7 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Intent i = new Intent(this, ViewActivity.class);
+        startActivity(i);
+        finish();
         btnGAN = findViewById(R.id.myButton);
         btnGAN.setOnClickListener(this);
         btnFiles = findViewById(R.id.btnFiles);
