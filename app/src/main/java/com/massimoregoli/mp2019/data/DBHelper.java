@@ -15,9 +15,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class DBHelper extends SQLiteOpenHelper {
-    static final String NAME = "NAME";
-    static final String PROV = "PROV";
-    static final String CODE = "CODE";
     private static final int VERSION = 1;
     public static final String TABLE_NAME = "comuni";
     private static final String DBNAME = "comuni";

@@ -24,7 +24,6 @@ public class ComuniAdapters extends RecyclerView.Adapter<ComuniAdapters.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View formNameView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.comuni_item_list, viewGroup, false);
-
         return new MyViewHolder(formNameView);
     }
 
@@ -37,9 +36,11 @@ public class ComuniAdapters extends RecyclerView.Adapter<ComuniAdapters.MyViewHo
         int mPatronoNome = cursor.getColumnIndex("patrono_nome");
         int mPatronoData = cursor.getColumnIndex("patrono_data");
         String comuneName = cursor.getString(mColumnIndexName);
+        viewHolder.view.setTag(i);
         viewHolder.tv1.setText(comuneName);
         viewHolder.tv2.setText(cursor.getString(mPatronoNome));
         viewHolder.tv3.setText(cursor.getString(mPatronoData));
+
     }
 
     @Override
@@ -52,14 +53,23 @@ public class ComuniAdapters extends RecyclerView.Adapter<ComuniAdapters.MyViewHo
         return cursor.getCount();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tv1, tv2, tv3;
+        View view;
 
         public MyViewHolder(View view) {
             super(view);
+            this.view = view;
+            view.setOnClickListener(this);
             tv1 = view.findViewById(R.id.tv1);
             tv2 = view.findViewById(R.id.tv2);
             tv3 = view.findViewById(R.id.tv3);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.w("CA", "POS " + this.getLayoutPosition());
         }
     }
 }

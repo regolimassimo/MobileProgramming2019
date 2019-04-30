@@ -13,7 +13,12 @@ public class DAOComuni {
     }
 
     public Cursor getCursor() {
-        Cursor ret = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME, null);
+        Cursor ret = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " order by comune", null);
+        return ret;
+    }
+
+    public Cursor getCursor(String roma) {
+        Cursor ret = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE comune LIKE ? order by comune", new String[] {roma + "%"});
         return ret;
     }
 }
