@@ -12,13 +12,21 @@ public class DAOComuni {
         db = dbh.getWritableDatabase();
     }
 
-    public Cursor getCursor() {
+    public Cursor getAll() {
         Cursor ret = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " order by comune", null);
         return ret;
     }
- 
-    public Cursor getCursor(String roma) {
-        Cursor ret = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE comune LIKE ? order by comune", new String[] {roma + "%"});
+
+    public Cursor getComuneByName(String comune) {
+        Cursor ret = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE comune LIKE ? order by comune", new String[] {comune + "%"});
         return ret;
+    }
+
+    public Comune getComuneById(int _id) {
+        Comune ret;
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE _id = ?", new String[] {"" + _id});
+        if(cursor.getCount() != 1)
+            return null;
+        return new Comune(cursor);
     }
 }
