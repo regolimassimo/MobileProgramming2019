@@ -3,85 +3,112 @@ package com.massimoregoli.mp2019.data;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Comune {
-    private static final String SEP = ";";
-    private String nome;
-    private String provincia;
-    private String codice;
-    private int _id;
 
-    public String getNome() {
-        return nome;
-    }
+	String istat;
+	String comune;
+	String codice;
+	String lon;
+	String lat;
+	String regione;
+	String prov;
+	String prefisso;
+	String sup;
+	String residenti;
+	String abitanti;
+	String patrono_nome;
+	String patrono_data;
+	String cap;
+	int _id;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getIstat() {
+		return istat;
+	}
 
-    public String getProvincia() {
-        return provincia;
-    }
+	public String getComune() {
+		return comune;
+	}
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
+	public String getCodice() {
+		return codice;
+	}
 
-    public String getCodice() {
-        return codice;
-    }
+	public String getLon() {
+		return lon;
+	}
 
-    public void setCodice(String codice) {
-        this.codice = codice;
-    }
+	public String getLat() {
+		return lat;
+	}
 
-    public int get_id() {
-        return _id;
-    }
+	public String getRegione() {
+		return regione;
+	}
 
-    public void set_id(int _id) {
-        this._id = _id;
-    }
+	public String getProv() {
+		return prov;
+	}
 
-    public Comune(String line) {
-        String [] flds = line.split(SEP);
-        if(flds.length != 3)
-            return;
-        nome = flds[0];
-        provincia = flds[1];
-        codice = flds[2];
+	public String getPrefisso() {
+		return prefisso;
+	}
 
-        _id = -1;
-    }
+	public String getSup() {
+		return sup;
+	}
+
+	public String getResidenti() {
+		int res = Integer.parseInt(residenti);
+		String ret = "NA";
+		try {
+			ret = NumberFormat.getIntegerInstance(Locale.getDefault()).format(res);
+		} catch(IllegalArgumentException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	public String getAbitanti() {
+		return abitanti;
+	}
+
+	public String getPatrono_nome() {
+		return patrono_nome;
+	}
+
+	public String getPatrono_data() {
+		return patrono_data;
+	}
+
+	public String getCap() {
+		return cap;
+	}
+
+	public int get_id() {
+		return _id;
+	}
 
 
-    public Comune(String [] fld) {
-        nome = fld[0];
-        provincia = fld[1];
-        codice = fld[2];
-    }
 
     public Comune(Cursor cursor) {
-        nome = cursor
-                .getString(cursor
-                        .getColumnIndexOrThrow(
-                                DBHelper.NAME));
-        provincia = cursor
-                .getString(cursor
-                        .getColumnIndexOrThrow(
-                                DBHelper.PROV));
-        codice = cursor
-                .getString(cursor
-                        .getColumnIndexOrThrow(
-                                DBHelper.CODE));
+		this.istat = cursor.getString(cursor.getColumnIndexOrThrow("istat"));
+		this.comune = cursor.getString(cursor.getColumnIndexOrThrow("comune"));
+		this.codice = cursor.getString(cursor.getColumnIndexOrThrow("codice"));
+		this.lon = cursor.getString(cursor.getColumnIndexOrThrow("lon"));
+		this.lat = cursor.getString(cursor.getColumnIndexOrThrow("lat"));
+		this.regione = cursor.getString(cursor.getColumnIndexOrThrow("regione"));
+		this.prov = cursor.getString(cursor.getColumnIndexOrThrow("prov"));
+		this.prefisso = cursor.getString(cursor.getColumnIndexOrThrow("prefisso"));
+		this.sup = cursor.getString(cursor.getColumnIndexOrThrow("sup"));
+		this.residenti = cursor.getString(cursor.getColumnIndexOrThrow("residenti"));
+		this.abitanti = cursor.getString(cursor.getColumnIndexOrThrow("abitanti"));
+		this.patrono_nome = cursor.getString(cursor.getColumnIndexOrThrow("patrono_nome"));
+		this.patrono_data = cursor.getString(cursor.getColumnIndexOrThrow("patrono_data"));
+		this.cap = cursor.getString(cursor.getColumnIndexOrThrow("cap"));
+		this._id = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
     }
-
-
-    public ContentValues toContentValue() {
-        ContentValues cv = new ContentValues();
-
-        cv.put(DBHelper.NAME, nome);
-        cv.put(DBHelper.PROV, provincia);
-        cv.put(DBHelper.CODE, codice);
-        return cv;
-    }
+    
 }
