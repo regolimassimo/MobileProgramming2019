@@ -24,6 +24,15 @@ public class Comune {
 	String cap;
 	int _id;
 
+	public void setPrefisso(String prefisso) {
+		this.prefisso = prefisso;
+	}
+
+	@Override
+	public String toString() {
+		return this.comune;
+	}
+
 	public String getIstat() {
 		return istat;
 	}
@@ -37,11 +46,13 @@ public class Comune {
 	}
 
 	public String getLon() {
-		return lon;
+		double lon = Double.parseDouble(this.lon);
+		return String.format(Locale.US, "%6.3f", lon);
 	}
 
 	public String getLat() {
-		return lat;
+		double lat = Double.parseDouble(this.lat);
+		return String.format(Locale.US, "%6.3f", lat);
 	}
 
 	public String getRegione() {
@@ -110,5 +121,9 @@ public class Comune {
 		this.cap = cursor.getString(cursor.getColumnIndexOrThrow("cap"));
 		this._id = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
     }
+
+    public Comune(String str) {
+
+	}
     
 }

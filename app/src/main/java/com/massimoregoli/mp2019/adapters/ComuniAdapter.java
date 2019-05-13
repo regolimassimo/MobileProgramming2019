@@ -19,10 +19,10 @@ import com.massimoregoli.mp2019.data.Comune;
 
 import java.util.Locale;
 
-public class ComuniAdapters extends RecyclerView.Adapter<ComuniAdapters.MyViewHolder> {
+public class ComuniAdapter extends RecyclerView.Adapter<ComuniAdapter.MyViewHolder> {
     private Context context;
     private Cursor cursor;
-    public ComuniAdapters(Context context, Cursor cursor) {
+    public ComuniAdapter(Context context, Cursor cursor) {
         super();
         this.context = context;
         this.cursor = cursor;
@@ -42,7 +42,7 @@ public class ComuniAdapters extends RecyclerView.Adapter<ComuniAdapters.MyViewHo
         Comune comune = new Comune(cursor);
         setText(viewHolder.tv1, comune.getComune());
 
-        setText(viewHolder.tv2, String.format(Locale.getDefault(), "Patrono: <b>%s</b>", comune.getPatrono_nome()));
+        setText(viewHolder.tv2, String.format(Locale.getDefault(), context.getString(R.string.patron_saint), comune.getPatrono_nome()));
         setText(viewHolder.tv3, String.format(Locale.getDefault(), "(%s)", comune.getPatrono_data()));
         setText(viewHolder.tv4, String.format(Locale.getDefault(), "CAP: <b>%s</b>", comune.getCap()));
         setText(viewHolder.tv11, String.format(Locale.getDefault(), "(<b>%s</b> - <i>%s</i>)", comune.getProv(), comune.getRegione()));

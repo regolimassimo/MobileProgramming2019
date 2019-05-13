@@ -9,4 +9,6 @@
     <string name="permok">Permission Accepted!</string>
     <string name="permnotok">Permission Denied!</string>
     <string name="say_a_number">Say a Number</string>
+    <string name="patron_saint"><![CDATA[Patron Saint: <b>%s</b>]]></string>
+    <string name="go">Go</string>
 </resources>

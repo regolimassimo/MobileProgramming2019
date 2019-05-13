@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myactivities.PrimeActivity">
+
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:fontFamily="@font/share_tech_mono"
+        android:inputType="number"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOutput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInput" />
+
+    <Button
+        android:id="@+id/btnNoOfPrime"
+        style="@style/mybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:text="# Prime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnCancel" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:text="@android:string/cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOutput" />
+
+    <Button
+        android:id="@+id/btnGoldbach"
+        style="@style/mybtn"
+        android:fontFamily="@font/butterfly_kids"
+        android:text="Goldbach"
+        app:layout_constraintEnd_toStartOf="@+id/btnTwin"
+        app:layout_constraintTop_toTopOf="@+id/btnCancel" />
+
+    <Button
+        android:id="@+id/btnTwin"
+        style="@style/mybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:text="Twin"
+        app:layout_constraintEnd_toStartOf="@+id/btnNoOfPrime"
+        app:layout_constraintTop_toTopOf="@+id/btnCancel" />
+
+    <Button
+        android:id="@+id/btnIsPrime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:text="Is Prime"
+        app:layout_constraintStart_toStartOf="@+id/btnGoldbach"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancel" />
+
+    <Button
+        android:id="@+id/btnFactorize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:text="Factor"
+        app:layout_constraintStart_toEndOf="@+id/btnIsPrime"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancel" />
+
+    <Button
+        android:id="@+id/btnEuler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/share_tech_mono"
+        android:text="Euler"
+        app:layout_constraintStart_toEndOf="@+id/btnFactorize"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancel" />
+
+</android.support.constraint.ConstraintLayout>

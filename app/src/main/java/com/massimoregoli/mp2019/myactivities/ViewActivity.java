@@ -1,8 +1,6 @@
 package com.massimoregoli.mp2019.myactivities;
 
-import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,10 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.massimoregoli.mp2019.R;
-import com.massimoregoli.mp2019.adapters.ComuniAdapters;
+import com.massimoregoli.mp2019.adapters.ComuniAdapter;
 import com.massimoregoli.mp2019.data.DAOComuni;
-
-import java.util.Locale;
 
 public class ViewActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher {
     RecyclerView rvComuni;
@@ -37,7 +33,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
         rvComuni.setLayoutManager(mLayoutManager);
         DAOComuni daoComuni = new DAOComuni(this);
         Cursor cursor = daoComuni.getAll();
-        ComuniAdapters ca = new ComuniAdapters(this, cursor);
+        ComuniAdapter ca = new ComuniAdapter(this, cursor);
         rvComuni.setAdapter(ca);
     }
 
@@ -57,7 +53,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
         if(s.length() > 2 || count == 0) {
             DAOComuni daoComuni = new DAOComuni(this);
             Cursor cursor = daoComuni.getComuneByName(s.toString());
-            ComuniAdapters ca = new ComuniAdapters(this, cursor);
+            ComuniAdapter ca = new ComuniAdapter(this, cursor);
             rvComuni.setAdapter(ca);
         }
     }

@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Mobile Programming 2019</string>
     <string name="guess_a_number">Indovina un Numero</string>
+    <string name="patron_saint"><![CDATA[Patrono: <b>%s</b>]]></string>
 </resources>

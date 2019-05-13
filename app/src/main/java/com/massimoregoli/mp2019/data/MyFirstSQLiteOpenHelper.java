@@ -63,9 +63,9 @@ public class MyFirstSQLiteOpenHelper extends SQLiteOpenHelper {
 
     public void add(SQLiteDatabase db, Comune comune) {
         ContentValues cvComune = new ContentValues();
-        cvComune.put("name", comune.getNome());
+        cvComune.put("name", comune.getComune());
         cvComune.put("code", comune.getCodice());
-        cvComune.put("prov", comune.getProvincia());
+        cvComune.put("prov", comune.getProv());
 
         db.insert("comuni", null, cvComune);
     }

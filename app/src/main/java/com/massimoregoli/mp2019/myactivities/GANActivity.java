@@ -48,7 +48,7 @@ public class GANActivity extends AppCompatActivity
         setContentView(R.layout.activity_gan);
 
         etAttempt = findViewById(R.id.etAttempt);
-        btnOK = findViewById(R.id.btnOK);
+        btnOK = findViewById(R.id.btnNoOfPrime);
         tvResult = findViewById(R.id.tvResult);
 
         btnOK.setOnClickListener(this);

@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.massimoregoli.mp2019.myactivities.Async2Activity;
+import com.massimoregoli.mp2019.myactivities.AsyncActivity;
 import com.massimoregoli.mp2019.myactivities.GANActivity;
+import com.massimoregoli.mp2019.myactivities.PrimeActivity;
 import com.massimoregoli.mp2019.myactivities.ViewActivity;
 import com.massimoregoli.mp2019.threads.MusicTask;
+import com.massimoregoli.mp2019.threads.PrimeTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button  btnGAN, btnFiles;
@@ -46,12 +50,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Permission has already been granted
         }
 
-
-//        MusicTask mt = new MusicTask(this);
-//        mt.execute("bee gees");
-        Intent i = new Intent(this, ViewActivity.class);
+        Intent i = new Intent(this, Async2Activity.class);
         startActivity(i);
         finish();
+//        MusicTask mt = new MusicTask(this);
+//        mt.execute("bee gees");
+//        Intent i = new Intent(this, ViewActivity.class);
+//        startActivity(i);
+//        finish();
         btnGAN = findViewById(R.id.myButton);
         btnGAN.setOnClickListener(this);
         btnFiles = findViewById(R.id.btnFiles);
