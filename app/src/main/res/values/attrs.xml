@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="GoLView">
+        <attr name="gridX" format="integer" />
+        <attr name="gridY" format="integer" />
+        <attr name="aliveCellColor" format="color"/>
+        <attr name="deathCellColor" format="color"/>
+        <attr name="cellShape" format="enum">
+            <enum name="rect" value="0"/>
+            <enum name="oval" value="1" />
+            <enum name="cross" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

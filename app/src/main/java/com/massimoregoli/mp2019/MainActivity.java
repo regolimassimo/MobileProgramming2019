@@ -3,20 +3,30 @@ package com.massimoregoli.mp2019;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.StrictMode;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.massimoregoli.mp2019.myactivities.Async2Activity;
 import com.massimoregoli.mp2019.myactivities.AsyncActivity;
+import com.massimoregoli.mp2019.myactivities.CocktailActivity;
 import com.massimoregoli.mp2019.myactivities.GANActivity;
+import com.massimoregoli.mp2019.myactivities.GameOfLife;
+import com.massimoregoli.mp2019.myactivities.HTMLCodeActivity;
 import com.massimoregoli.mp2019.myactivities.PrimeActivity;
+import com.massimoregoli.mp2019.myactivities.QRCodeGenerator;
 import com.massimoregoli.mp2019.myactivities.ViewActivity;
+import com.massimoregoli.mp2019.threads.CocktailTask;
 import com.massimoregoli.mp2019.threads.MusicTask;
 import com.massimoregoli.mp2019.threads.PrimeTask;
+
+import net.sourceforge.jeval.EvaluationException;
+import net.sourceforge.jeval.Evaluator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button  btnGAN, btnFiles;
@@ -25,6 +35,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new
+                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
+//        Evaluator evaluator = new Evaluator();
+//        String expr = "cos(x_)*sin(x_)";
+//        try {
+//            String s = evaluator.evaluate(expr.replace("x_", "3"));
+//            Log.w("MA", s);
+//        } catch (EvaluationException e) {
+//            e.printStackTrace();
+//        }
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -49,8 +74,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             // Permission has already been granted
         }
+//        Intent i = new Intent(this, HTMLCodeActivity.class);
+//        startActivity(i);
+//        finish();
 
-        Intent i = new Intent(this, Async2Activity.class);
+//        Intent i = new Intent(this, CocktailActivity.class);
+//        startActivity(i);
+//        finish();
+//        Intent i = new Intent(this, GameOfLife.class);
+//        startActivity(i);
+//        finish();
+        Intent i = new Intent(this, QRCodeGenerator.class);
         startActivity(i);
         finish();
 //        MusicTask mt = new MusicTask(this);

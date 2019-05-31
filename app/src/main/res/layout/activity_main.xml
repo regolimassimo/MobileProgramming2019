@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <com.massimoregoli.mp2019.myviews.MyButton
         android:id="@+id/myButton"
         android:layout_width="wrap_content"
